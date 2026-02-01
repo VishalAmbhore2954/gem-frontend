@@ -9,40 +9,54 @@ import { Toastr } from '../../../Services/toastr';
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
-export class Login implements OnInit{
+export class Login implements OnInit {
 
-  loginForm!:FormGroup;
+  loginForm!: FormGroup;
 
   constructor(
-    private fb:FormBuilder,
-    private authService:Auth,
-    private toastr:Toastr
-  ){}
+    private fb: FormBuilder,
+    private authService: Auth,
+    private toastr: Toastr
+  ) { }
 
   ngOnInit(): void {
     this.initForm();
   }
 
-  initForm(){
+  initForm() {
     this.loginForm = this.fb.group({
-      email : "",
-      password : ""
+      email: "",
+      password: ""
     })
   }
 
-  onSubmit(){
-    this.authService.login(this.loginForm.value).subscribe((res:any)=>{
-      if(res.token){
-        localStorage.setItem('token',res.token);
-        this.toastr.showSuccess("Login Successfull");
-      }else{
-        this.toastr.showError("Login Failed, Check Credentials");
+  onSubmit() {
+    this.authService.login(this.loginForm.value).subscribe({
+      next: (res: any) => {
+        // success status (200 OK etc)
+        if (res?.token) {
+          localStorage.setItem('token', res.token);
+          this.toastr.showSuccess('Login Successful');
+        } else {
+          // server responded successfully but no token
+          this.toastr.showError('Login failed — invalid response data');
+        }
+        this.clearForm();
+      },
+      error: (err) => {
+        console.error('Login error', err);
+        // show appropriate error toast
+        if (err.status === 401) {
+          this.toastr.showError('Invalid email or password');
+        } else {
+          this.toastr.showError('Login failed — server error');
+        }
       }
-      this.clearForm();
-    })
+    });
   }
 
-  clearForm(){
+
+  clearForm() {
     this.loginForm.reset();
   }
 
