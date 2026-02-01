@@ -1,7 +1,7 @@
 <div class="min-h-screen flex items-center justify-center bg-[#F4F4F4]">
     <div class="w-full max-w-md bg-white rounded-xl shadow-xl overflow-hidden">
         <div class="bg-[#1A2A40] py-6 flex flex-col items-center">
-            <img src="/assets/diamond.png" class="h-12 mb-2" alt="">
+            <img src="/assets/diamond.png" class="h-12 mb-2" alt="logo">
             <h1 class="text-[#D4AF37] text-xl font-bold tracking-wide">GEMSMITH</h1>
         </div>
         <form [formGroup]="loginForm">
@@ -14,7 +14,7 @@
 
                 <div class="flex justify-between text-sm text-gray-500">
                     <a href="#" class="hover:text-yellow-600">Forgot password?</a>
-                    <a href="#" class="hover:text-yellow-600">Register here!</a>
+                    <a routerLink="/register" class="hover:text-yellow-600">Register here!</a>
                 </div>
             </div>
         </form>

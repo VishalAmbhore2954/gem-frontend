@@ -1,0 +1,55 @@
+<div class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+    <!-- Card Container -->
+    <div class="w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+        
+        <!-- Left Side: Form -->
+        <div class="flex-1 p-8 md:p-12 flex flex-col justify-center">
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">Create Account</h2>
+            <p class="text-gray-500 mb-8 text-sm">Please enter your details to get started.</p>
+            
+            <div class="flex flex-col gap-4">
+                <div class="flex flex-col gap-1">
+                    <label class="text-xs font-semibold text-gray-600 uppercase">Full Name</label>
+                    <input type="text" placeholder="John Doe" class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
+                </div>
+
+                <div class="flex flex-col gap-1">
+                    <label class="text-xs font-semibold text-gray-600 uppercase">Mobile Number</label>
+                    <input type="text" placeholder="+1 (555) 000-0000" class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
+                </div>
+
+                <div class="flex flex-col gap-1">
+                    <label class="text-xs font-semibold text-gray-600 uppercase">Email Address</label>
+                    <input type="email" placeholder="john@example.com" class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
+                </div>
+
+                <div class="flex flex-col gap-1">
+                    <label class="text-xs font-semibold text-gray-600 uppercase">Password</label>
+                    <input type="password" placeholder="********" class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
+                </div>
+
+                <button class="mt-4 bg-[#1A2A40] text-white font-bold py-3 rounded-lg hover:bg-slate-800 transition shadow-lg">
+                    REGISTER
+                </button>
+            </div>
+            
+            <p class="text-center text-sm text-gray-500 mt-6">
+                Already have an account? <a routerLink="login" class="text-blue-600 font-semibold">Login</a>
+            </p>
+        </div>
+
+        <!-- Right Side: Branding -->
+        <div class="flex-1 bg-[#1A2A40] p-12 flex flex-col items-center justify-center text-center">
+            <!-- Replace with your actual image path -->
+            <div class="bg-white/10 p-6 rounded-full mb-6">
+                <img src="/assets/diamond.png" class="h-32 w-32 object-contain brightness-110" alt="logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3062/3062410.png'">
+            </div>
+            <h1 class="text-[#D4AF37] text-4xl font-black tracking-widest">GEMSMITH</h1>
+            <div class="w-16 h-1 bg-[#D4AF37] mt-4"></div>
+            <p class="text-gray-300 mt-6 max-w-xs italic text-sm">
+                "Crafting excellence, one stone at a time."
+            </p>
+        </div>
+
+    </div>
+</div>
