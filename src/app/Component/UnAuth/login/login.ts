@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Auth } from '../../../Services/Auth/auth';
+import { Toastr } from '../../../Services/toastr';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class Login implements OnInit{
 
   constructor(
     private fb:FormBuilder,
-    private authService:Auth
+    private authService:Auth,
+    private toastr:Toastr
   ){}
 
   ngOnInit(): void {
@@ -30,8 +32,12 @@ export class Login implements OnInit{
 
   onSubmit(){
     this.authService.login(this.loginForm.value).subscribe((res:any)=>{
-      console.log("login suceess",res);
-      localStorage.setItem('token',res.token);
+      if(res.token){
+        localStorage.setItem('token',res.token);
+        this.toastr.showSuccess("Login Successfull");
+      }else{
+        this.toastr.showError("Login Failed, Check Credentials");
+      }
       this.clearForm();
     })
   }
