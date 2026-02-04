@@ -1,5 +1,11 @@
 <ng-container>
-  @if(UnAuthRoutes){
+  @if(isUnauthRoute()){
     <app-unauth-layout></app-unauth-layout>
+  }
+</ng-container>
+
+<ng-container>
+  @if(isAuthRoute()){
+    <app-auth-layout></app-auth-layout>
   }
 </ng-container>

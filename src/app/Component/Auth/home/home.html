@@ -1,0 +1,142 @@
+<div class="min-h-screen bg-primary text-lightText">
+
+  <!-- Top Bar -->
+  <div class="flex items-center justify-between p-4 border-b border-white/10">
+    <div class="flex items-center gap-3">
+      <button (click)="toggleSidebar()" class="lg:hidden">
+        <span class="text-2xl">☰</span>
+      </button>
+      <div class="text-2xl font-semibold">Dashboard</div>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <input
+        class="hidden sm:block bg-white/10 border border-white/20 rounded-lg px-4 py-2 w-64 placeholder:text-mutedText"
+        placeholder="Search...">
+      <div class="text-mutedText">Admin</div>
+      <div class="text-2xl">🔔</div>
+    </div>
+  </div>
+
+  <div class="flex">
+
+    <!-- Sidebar -->
+    <aside
+      [ngClass]="{
+        'block': sidebarOpen,
+        'hidden': !sidebarOpen
+      }"
+      class="fixed inset-y-0 left-0 w-64 bg-secondary p-6 z-50 lg:relative lg:block lg:z-auto"
+    >
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-10 h-10 rounded-full bg-accent"></div>
+        <div class="text-2xl font-bold">JewelSoft</div>
+      </div>
+
+      <nav class="space-y-3">
+        <a class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/10" href="#">
+          <span class="text-xl">🏠</span> Dashboard
+        </a>
+        <a class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/10" href="#">
+          <span class="text-xl">💍</span> Inventory
+        </a>
+        <a class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/10" href="#">
+          <span class="text-xl">🧾</span> Sales
+        </a>
+        <a class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/10" href="#">
+          <span class="text-xl">📦</span> Purchases
+        </a>
+        <a class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/10" href="#">
+          <span class="text-xl">👥</span> Customers
+        </a>
+        <a class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/10" href="#">
+          <span class="text-xl">📈</span> Reports
+        </a>
+        <a class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/10" href="#">
+          <span class="text-xl">⚙️</span> Settings
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Overlay (mobile only) -->
+    <div
+      *ngIf="sidebarOpen"
+      (click)="toggleSidebar()"
+      class="fixed inset-0 bg-black/50 lg:hidden"
+    ></div>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-4 lg:p-6 lg:ml-64">
+
+      <!-- Stats -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white/10 border border-white/20 rounded-2xl p-5">
+          <div class="text-mutedText text-sm">Total Stock</div>
+          <div class="text-2xl font-bold mt-2">$124,000</div>
+        </div>
+        <div class="bg-white/10 border border-white/20 rounded-2xl p-5">
+          <div class="text-mutedText text-sm">Sales Today</div>
+          <div class="text-2xl font-bold mt-2">$8,540</div>
+        </div>
+        <div class="bg-white/10 border border-white/20 rounded-2xl p-5">
+          <div class="text-mutedText text-sm">Gold Rate</div>
+          <div class="text-2xl font-bold mt-2">$2,350</div>
+        </div>
+        <div class="bg-white/10 border border-white/20 rounded-2xl p-5">
+          <div class="text-mutedText text-sm">Pending Orders</div>
+          <div class="text-2xl font-bold mt-2">12</div>
+        </div>
+      </div>
+
+      <!-- Main Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2 bg-white/10 border border-white/20 rounded-2xl p-6">
+          <div class="flex justify-between items-center mb-4">
+            <div class="text-lg font-semibold">Inventory Breakdown</div>
+            <button class="bg-accent text-primary px-4 py-2 rounded-lg font-semibold">
+              View Full
+            </button>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-primary/30 border border-white/10 rounded-xl p-4">
+              <div class="text-mutedText text-sm">Rings</div>
+              <div class="text-2xl font-bold mt-2">1,240</div>
+            </div>
+            <div class="bg-primary/30 border border-white/10 rounded-xl p-4">
+              <div class="text-mutedText text-sm">Necklaces</div>
+              <div class="text-2xl font-bold mt-2">980</div>
+            </div>
+            <div class="bg-primary/30 border border-white/10 rounded-xl p-4">
+              <div class="text-mutedText text-sm">Earrings</div>
+              <div class="text-2xl font-bold mt-2">1,620</div>
+            </div>
+            <div class="bg-primary/30 border border-white/10 rounded-xl p-4">
+              <div class="text-mutedText text-sm">Bracelets</div>
+              <div class="text-2xl font-bold mt-2">750</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white/10 border border-white/20 rounded-2xl p-6">
+          <div class="text-lg font-semibold mb-4">Quick Actions</div>
+          <div class="space-y-3">
+            <button class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2">
+              Add New Item
+            </button>
+            <button class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2">
+              Create Invoice
+            </button>
+            <button class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2">
+              Add Customer
+            </button>
+            <button class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2">
+              Add Supplier
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>

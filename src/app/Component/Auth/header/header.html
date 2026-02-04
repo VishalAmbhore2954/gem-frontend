@@ -1,0 +1,40 @@
+<div class="h-12 bg-[#1A2A40] flex items-center justify-between px-2 text-white">
+
+  <!-- Left side -->
+  <div class="flex items-center gap-4">
+    <!-- Mobile Hamburger -->
+    <button (click)="toggleMenu()" class="lg:hidden p-2">
+      <span class="text-2xl">☰</span>
+    </button>
+
+    <img src="/assets/diamond.png" class="h-10" alt="logo">
+    <h1 class="font-bold m-0">Home</h1>
+  </div>
+
+  <!-- Desktop Links -->
+  <div class="hidden lg:flex items-center gap-6">
+    <a class="font-semibold" routerLink="">Stock Master</a>
+    <a class="font-semibold" routerLink="/stock">Stock</a>
+    <a class="font-semibold" routerLink="">Tags</a>
+    <a class="font-semibold" routerLink="">Users</a>
+    <a class="font-semibold" routerLink="">Reports</a>
+  </div>
+
+  <!-- Right side -->
+  <div class="hidden lg:flex">
+    Firms
+  </div>
+
+</div>
+
+<!-- Mobile Menu -->
+<div *ngIf="menuOpen" class="lg:hidden bg-[#1A2A40] text-white">
+  <div class="flex flex-col gap-2 p-2">
+    <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="">Stock Master</a>
+    <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="/stock">Stock</a>
+    <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="">Tags</a>
+    <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="">Users</a>
+    <a class="font-semibold py-2 px-2" routerLink="">Reports</a>
+    <div class="py-2 px-2 border-t border-white/20">Firms</div>
+  </div>
+</div>
