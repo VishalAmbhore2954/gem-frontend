@@ -8,16 +8,16 @@
     </button>
 
     <img src="/assets/diamond.png" class="h-10" alt="logo">
-    <h1 class="font-bold m-0">Home</h1>
+    <h1 class="font-bold m-0 cursor-pointer" routerLink="/home">Home</h1>
   </div>
 
   <!-- Desktop Links -->
   <div class="hidden lg:flex items-center gap-6">
-    <a class="font-semibold" routerLink="">Stock Master</a>
-    <a class="font-semibold" routerLink="/stock">Stock</a>
-    <a class="font-semibold" routerLink="">Tags</a>
-    <a class="font-semibold" routerLink="">Users</a>
-    <a class="font-semibold" routerLink="">Reports</a>
+    <a class="font-semibold cursor-pointer" routerLink="">Stock Master</a>
+    <a class="font-semibold cursor-pointer" routerLink="/stock">Stock</a>
+    <a class="font-semibold cursor-pointer" routerLink="">Tags</a>
+    <a class="font-semibold cursor-pointer" routerLink="">Users</a>
+    <a class="font-semibold cursor-pointer" routerLink="">Reports</a>
   </div>
 
   <!-- Right side -->
@@ -28,7 +28,7 @@
 </div>
 
 <!-- Mobile Menu -->
-<div *ngIf="menuOpen" class="lg:hidden bg-[#1A2A40] text-white">
+<div @if(menuOpen) class="lg:hidden bg-[#1A2A40] text-white">
   <div class="flex flex-col gap-2 p-2">
     <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="">Stock Master</a>
     <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="/stock">Stock</a>
