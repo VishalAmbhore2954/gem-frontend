@@ -1,0 +1,49 @@
+<div class="min-h-screen bg-white text-white p-4">
+
+  <div class="flex flex-col sm:flex-row justify-between items-center gap-3 mb-4">
+    <h2 class="text-2xl font-bold">Stock List</h2>
+    <button class="bg-[#FFD700] text-[#1A2A40] px-4 py-2 rounded-lg font-semibold">
+      + Add New
+    </button>
+  </div>
+
+  <div class="overflow-x-auto bg-[#1A2A40] border border-[#1A2A40] rounded-xl">
+    <table class="min-w-full">
+      <thead class="text-mutedText text-sm">
+        <tr>
+          <th class="py-3 px-4 text-left">Item Code</th>
+          <th class="py-3 px-4 text-left">Item Name</th>
+          <th class="py-3 px-4 text-left">Category</th>
+          <th class="py-3 px-4 text-left">Sub Category</th>
+          <th class="py-3 px-4 text-left">Purity</th>
+          <th class="py-3 px-4 text-left">Net Wt</th>
+          <th class="py-3 px-4 text-left">Qty</th>
+          <th class="py-3 px-4 text-left">Purchase</th>
+          <th class="py-3 px-4 text-left">Selling</th>
+          <th class="py-3 px-4 text-left">Status</th>
+          <th class="py-3 px-4 text-left">Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr class="border-t border-white/10 hover:bg-white/5" *ngFor="let item of stockList">
+          <td class="py-3 px-4">{{ item.stc_item_code }}</td>
+          <td class="py-3 px-4">{{ item.stc_item_name }}</td>
+          <td class="py-3 px-4">{{ item.stc_item_category }}</td>
+          <td class="py-3 px-4">{{ item.stc_sub_category }}</td>
+          <td class="py-3 px-4">{{ item.stc_purity }}</td>
+          <td class="py-3 px-4">{{ item.stc_net_weight }}</td>
+          <td class="py-3 px-4">{{ item.stc_quantity }}</td>
+          <td class="py-3 px-4">{{ item.stc_purchase_price }}</td>
+          <td class="py-3 px-4">{{ item.stc_selling_price }}</td>
+          <td class="py-3 px-4">{{ item.stc_stock_staus }}</td>
+          <td class="py-3 px-4">
+            <button class="text-accent font-semibold mr-2">Edit</button>
+            <button class="text-red-400 font-semibold">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

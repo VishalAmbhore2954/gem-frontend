@@ -4,6 +4,8 @@ import { Login } from './Component/UnAuth/login/login';
 import { Notfound } from './Component/Auth/notfound/notfound';
 import { Stock } from './Component/Auth/stock/stock';
 import { Home } from './Component/Auth/home/home';
+import { StockMasterList } from './Component/Auth/stock-master-list/stock-master-list';
+import { StockList } from './Component/Auth/stock-list/stock-list';
 
 export const routes: Routes = [
     { path: '', component:Home},
@@ -11,5 +13,7 @@ export const routes: Routes = [
     { path: 'login', component:Login},
     { path: 'register', component:Register},
     { path: 'stock', component:Stock},
+    { path: 'stock-master-list',component:StockMasterList},
+    { path: 'stock-list', component:StockList},
     { path: '**', component:Notfound}
 ];
