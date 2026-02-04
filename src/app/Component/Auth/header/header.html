@@ -28,13 +28,13 @@
 </div>
 
 <!-- Mobile Menu -->
-<div @if(menuOpen) class="lg:hidden bg-[#1A2A40] text-white">
+<div *ngIf="menuOpen" class="lg:hidden bg-[#1A2A40] text-white">
   <div class="flex flex-col gap-2 p-2">
-    <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="/stock-master-list">Stock Master</a>
-    <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="/stock">Stock</a>
-    <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="">Tags</a>
-    <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="">Users</a>
-    <a class="font-semibold py-2 px-2" routerLink="/stock-list">Reports</a>
+    <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="/stock-master-list" (click)="toggleMenu()">Stock Master</a>
+    <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="/stock" (click)="toggleMenu()">Stock</a>
+    <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="" (click)="toggleMenu()">Tags</a>
+    <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="" (click)="toggleMenu()">Users</a>
+    <a class="font-semibold py-2 px-2" routerLink="/stock-list" (click)="toggleMenu()">Reports</a>
     <div class="py-2 px-2 border-t border-white/20">Firms</div>
   </div>
 </div>
