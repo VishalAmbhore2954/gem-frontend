@@ -1,35 +1,37 @@
-<div class="min-h-screen bg-[#F4F4F4]"> 
-    <div class="text-3xl font-bold flex justify-center pt-10 italic">Register Here</div>   
-    <div class="min-h-screen flex">
-    <div class="w-full m-2 rounded-lg flex flex-col md:flex-row gap-4 p-4 items-start">
-        
-        <div class="flex-1  bg-pink-200 rounded p-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
-        <input type="text" placeholder="Mobile" class="border bg-white bg-white rounded p-2 outline-none">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        </div>
+<div class="min-h-screen bg-[#F4F4F4]">
+    <div class="text-3xl font-bold flex justify-center pt-10 italic">Add Stock</div>
+    <form [formGroup]="stockForm">
+        <div class="min-h-screen flex">
+            <div class="w-full m-2 rounded-lg flex flex-col md:flex-row gap-4 p-4 items-start">
 
-        <div class="flex-1  bg-blue-200 rounded p-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        </div>
+                <div class="flex-1  bg-pink-200 rounded p-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <input formControlName="stc_item_code" type="text" placeholder="Item Code" class="border bg-white bg-white rounded p-2 outline-none">
+                    <input formControlName="stc_item_type" type="text" placeholder="Item Type" class="border bg-white rounded p-2 outline-none">
+                    <input formControlName="stc_item_name" type="text" placeholder="Item name" class="border bg-white rounded p-2 outline-none">
+                    <input formControlName="stc_item_category" type="text" placeholder="Category" class="border bg-white rounded p-2 outline-none">
+                    <input formControlName="stc_sub_category" type="text" placeholder="Sub Category" class="border bg-white rounded p-2 outline-none">
+                    <input formControlName="stc_purity" type="text" placeholder="Purity" class="border bg-white rounded p-2 outline-none">
+                </div>
 
-        <div class="flex-1  bg-green-200 rounded p-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        <input type="text" placeholder="Mobile" class="border bg-white rounded p-2 outline-none">
-        </div>
+                <div class="flex-1  bg-blue-200 rounded p-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <input formControlName="stc_gross_weight" type="text" placeholder="GS Wt" class="border bg-white rounded p-2 outline-none">
+                    <input formControlName="stc_net_weight" type="text" placeholder="Nt Wt" class="border bg-white rounded p-2 outline-none">
+                    <input formControlName="stc_westage_percent" type="text" placeholder="Westage percent" class="border bg-white rounded p-2 outline-none">
+                    <input formControlName="stc_making_charges" type="text" placeholder="Making Charges" class="border bg-white rounded p-2 outline-none">
+                    <input formControlName="stc_rate_per_gm" type="text" placeholder="Rate per gm" class="border bg-white rounded p-2 outline-none">
+                    <input formControlName="stc_purchase_price" type="text" placeholder="Purchase price" class="border bg-white rounded p-2 outline-none">
+                </div>
 
-    </div>
-    </div>
+                <div class="flex-1  bg-green-200 rounded p-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <input formControlName="stc_selling_price" type="text" placeholder="Selling Price" class="border bg-white rounded p-2 outline-none">
+                    <input formControlName="stc_quantity" type="text" placeholder="Quantity" class="border bg-white rounded p-2 outline-none">
+                    <input formControlName="stc_supplier_id" type="text" placeholder="Supplier" class="border bg-white rounded p-2 outline-none">
+                    <input formControlName="stc_stock_staus" type="text" placeholder="Stock Status" class="border bg-white rounded p-2 outline-none">
+                    <button type="button" (click)="submit()" class="border p-2 rounded font-bold bg-pink-500 text-white">Submit</button>
+                    <button type="button" (click)="clearForm()" class="border p-2 rounded font-bold bg-blue-500 text-white">Clear</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
 </div>
