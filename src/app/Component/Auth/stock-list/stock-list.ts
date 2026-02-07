@@ -1,39 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { StockService } from '../../../Services/stock';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-stock-list',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './stock-list.html',
   styleUrl: './stock-list.css',
 })
 
-export class StockList {
+export class StockList implements OnInit{
 
+  stockList:any;
 
-  stockList = [
-    {
-      id: 1,
-      stc_item_code: 'ITM-001',
-      stc_item_name: 'Gold Ring',
-      stc_item_category: 'Rings',
-      stc_sub_category: 'Men',
-      stc_purity: '22K',
-      stc_gross_weight: '10.5',
-      stc_net_weight: '9.8',
-      stc_westage_percent: '5',
-      stc_making_charges: '1500',
-      stc_rate_per_gm: '4500',
-      stc_purchase_price: '50000',
-      stc_selling_price: '65000',
-      stc_quantity: '1',
-      stc_supplier_id: 'SUP-001',
-      stc_stock_staus: 'Available',
-      stc_firm_id: 'FIRM-001',
-      stc_master_id: 'MASTER-001',
-      stc_user_id: 'USER-001',
-      created_at: '2026-02-01',
-      updated_at: '2026-02-02',
-    },
-    // Add more dummy data...
-  ];
+  constructor(private stockService:StockService,private router:Router){}
+
+  ngOnInit() {
+    this.getStockData();
+  }
+
+  getStockData(){
+    this.stockService.getStocks().subscribe((res:any)=>{
+      this.stockList = res.data;
+    })
+  }
+
+  editStock(item:any){
+
+  }
+
+  deleteStock(item:any){
+    const isConfirm = confirm("Delete "+item.stc_item_name + "from stock")
+    if(isConfirm){
+      this.stockService.deleteStock(item.id).subscribe((res:any)=>{
+        alert("Stock "+item.stc_item_nsme+ "deleted with quantity "+item.stc_quantity);
+      })
+    }else{
+      alert("Stock not deleted");
+    }
+  }
+
+  geToStock(){
+    this.router.navigate(['/stock'])
+  }
 }

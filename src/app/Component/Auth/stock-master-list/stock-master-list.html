@@ -21,10 +21,10 @@
 
       <tbody>
         <tr class="border-t border-white/10 hover:bg-white/5" *ngFor="let item of stockList">
-          <td class="py-3 px-4">{{ item.name }}</td>
-          <td class="py-3 px-4">{{ item.category }}</td>
-          <td class="py-3 px-4">{{ item.subcategory }}</td>
-          <td class="py-3 px-4">{{ item.purity }}</td>
+          <td class="py-3 px-4">{{ item.stm_item_name }}</td>
+          <td class="py-3 px-4">{{ item.stm_item_category }}</td>
+          <td class="py-3 px-4">{{ item.stm_item_subcategory }}</td>
+          <td class="py-3 px-4">{{ item.stm_purity }}</td>
           <td class="py-3 px-4">
             <button class="text-accent font-semibold mr-2" (click)="edit(item)">Edit</button>
             <button class="text-red-400 font-semibold" (click)="delete(item)">Delete</button>

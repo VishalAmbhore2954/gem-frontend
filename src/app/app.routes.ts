@@ -15,7 +15,7 @@ export const routes: Routes = [
     { path: 'register', component:Register},
     { path: 'stock', component:Stock},
     { path: 'stock-master-list', component:StockMasterList},
-    { path: 'inventoty-cards', component:InventoryCards},
+    { path: 'inventory-cards', component:InventoryCards},
     { path: 'stock-list', component:StockList},
     { path: '**', component:Notfound}
 ];

@@ -2,7 +2,7 @@
 
   <div class="flex flex-col sm:flex-row justify-between items-center gap-3 mb-4">
     <h2 class="text-2xl font-bold">Stock List</h2>
-    <button class="bg-[#FFD700] text-[#1A2A40] px-4 py-2 rounded-lg font-semibold">
+    <button (click)="geToStock()" class="bg-[#FFD700] text-[#1A2A40] px-4 py-2 rounded-lg cursor-pointer font-semibold">
       + Add New
     </button>
   </div>
@@ -39,8 +39,8 @@
           <td class="py-3 px-4">{{ item.stc_selling_price }}</td>
           <td class="py-3 px-4">{{ item.stc_stock_staus }}</td>
           <td class="py-3 px-4">
-            <button class="text-accent font-semibold mr-2">Edit</button>
-            <button class="text-red-400 font-semibold">Delete</button>
+            <button (click)="editStock(item)" class="text-accent font-semibold mr-2">Edit</button>
+            <button (click)="deleteStock(item)" class="text-red-400 font-semibold">Delete</button>
           </td>
         </tr>
       }
