@@ -26,7 +26,8 @@
       </thead>
 
       <tbody>
-        <tr class="border-t border-white/10 hover:bg-white/5" *ngFor="let item of stockList">
+        @for (item of stockList; track item) {
+          <tr class="border-b border-white/10 hover:bg-white/5">
           <td class="py-3 px-4">{{ item.stc_item_code }}</td>
           <td class="py-3 px-4">{{ item.stc_item_name }}</td>
           <td class="py-3 px-4">{{ item.stc_item_category }}</td>
@@ -42,6 +43,7 @@
             <button class="text-red-400 font-semibold">Delete</button>
           </td>
         </tr>
+      }
       </tbody>
     </table>
   </div>

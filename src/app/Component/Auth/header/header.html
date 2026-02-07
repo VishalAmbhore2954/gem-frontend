@@ -1,40 +1,44 @@
-<div class="h-12 bg-[#1A2A40] flex items-center justify-between px-2 text-white">
+<nav class="relative h-12 bg-[#1A2A40] flex items-center justify-between px-4 text-white z-50">
 
   <!-- Left side -->
-  <div class="flex items-center gap-4">
+  <div class="flex items-center gap-2">
     <!-- Mobile Hamburger -->
-    <button (click)="toggleMenu()" class="lg:hidden p-2">
-      <span class="text-2xl">☰</span>
+    <button (click)="toggleMenu()" class="lg:hidden p-2 focus:outline-none" aria-label="Toggle menu">
+      <span class="text-2xl">{{ menuOpen ? '✕' : '☰' }}</span>
     </button>
 
-    <img src="/assets/diamond.png" class="h-10" alt="logo">
-    <h1 class="font-bold m-0 cursor-pointer" routerLink="/home">Home</h1>
+    <div class="flex items-center gap-2 cursor-pointer" routerLink="/home">
+      <img src="/assets/diamond.png" class="h-8 w-auto" alt="logo">
+      <h1 class="font-bold m-0 text-lg">Home</h1>
+    </div>
   </div>
 
-  <!-- Desktop Links -->
+  <!-- Desktop Links (Hidden on Mobile) -->
   <div class="hidden lg:flex items-center gap-6">
-    <a class="font-semibold cursor-pointer" routerLink="/stock-master-list">Stock Master</a>
-    <a class="font-semibold cursor-pointer" routerLink="/stock">Stock</a>
-    <a class="font-semibold cursor-pointer" routerLink="">Tags</a>
-    <a class="font-semibold cursor-pointer" routerLink="">Users</a>
-    <a class="font-semibold cursor-pointer" routerLink="/stock-list">Reports</a>
+    <a class="font-semibold hover:text-gray-300 transition-colors" routerLink="/stock-master-list">Stock Master</a>
+    <a class="font-semibold hover:text-gray-300 transition-colors" routerLink="/stock">Stock</a>
+    <a class="font-semibold hover:text-gray-300 transition-colors" routerLink="">Tags</a>
+    <a class="font-semibold hover:text-gray-300 transition-colors" routerLink="">Users</a>
+    <a class="font-semibold hover:text-gray-300 transition-colors" routerLink="/stock-list">Reports</a>
   </div>
 
   <!-- Right side -->
-  <div class="hidden lg:flex">
+  <div class="hidden lg:flex items-center font-semibold">
     Firms
   </div>
+</nav>
 
-</div>
-
+<!-- Mobile Menu (Absolute Overlay) -->
 <!-- Mobile Menu -->
-<div *ngIf="menuOpen" class="lg:hidden bg-[#1A2A40] text-white">
-  <div class="flex flex-col gap-2 p-2">
-    <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="/stock-master-list" (click)="toggleMenu()">Stock Master</a>
-    <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="/stock" (click)="toggleMenu()">Stock</a>
-    <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="" (click)="toggleMenu()">Tags</a>
-    <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="" (click)="toggleMenu()">Users</a>
-    <a class="font-semibold py-2 px-2" routerLink="/stock-list" (click)="toggleMenu()">Reports</a>
-    <div class="py-2 px-2 border-t border-white/20">Firms</div>
+@if (menuOpen) {
+  <div class="lg:hidden absolute top-12 left-0 w-full bg-[#1A2A40] text-white shadow-lg z-50">
+    <div class="flex flex-col gap-2 p-2">
+      <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="/stock-master-list" (click)="toggleMenu()">Stock Master</a>
+      <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="/stock" (click)="toggleMenu()">Stock</a>
+      <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="" (click)="toggleMenu()">Tags</a>
+      <a class="font-semibold py-2 px-2 border-b border-white/20" routerLink="" (click)="toggleMenu()">Users</a>
+      <a class="font-semibold py-2 px-2" routerLink="/stock-list" (click)="toggleMenu()">Reports</a>
+      <div class="py-2 px-2 border-t border-white/20">Firms</div>
+    </div>
   </div>
-</div>
+}

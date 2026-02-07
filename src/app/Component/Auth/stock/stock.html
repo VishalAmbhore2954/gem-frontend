@@ -1,37 +1,60 @@
-<div class="min-h-screen bg-[#F4F4F4]">
-    <div class="text-3xl font-bold flex justify-center pt-10 italic">Add Stock</div>
-    <form [formGroup]="stockForm">
-        <div class="min-h-screen flex">
-            <div class="w-full m-2 rounded-lg flex flex-col md:flex-row gap-4 p-4 items-start">
+<div class="min-h-screen bg-[#F4F4F4] pb-10">
+    <!-- Header -->
+    <div class="text-2xl md:text-3xl font-bold flex justify-center pt-6 md:pt-10 italic">
+        Add Stock
+    </div>
 
-                <div class="flex-1  bg-pink-200 rounded p-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    <input formControlName="stc_item_code" type="text" placeholder="Item Code" class="border bg-white bg-white rounded p-2 outline-none">
-                    <input formControlName="stc_item_type" type="text" placeholder="Item Type" class="border bg-white rounded p-2 outline-none">
-                    <input formControlName="stc_item_name" type="text" placeholder="Item name" class="border bg-white rounded p-2 outline-none">
-                    <input formControlName="stc_item_category" type="text" placeholder="Category" class="border bg-white rounded p-2 outline-none">
-                    <input formControlName="stc_sub_category" type="text" placeholder="Sub Category" class="border bg-white rounded p-2 outline-none">
-                    <input formControlName="stc_purity" type="text" placeholder="Purity" class="border bg-white rounded p-2 outline-none">
+    <form [formGroup]="stockForm" class="p-2 md:p-4">
+        <!-- Main Responsive Container -->
+        <div class="flex flex-col lg:flex-row gap-4 items-start max-w-[1600px] mx-auto">
+
+            <!-- Section 1: Item Details (Pink) -->
+            <div class="w-full lg:flex-1 bg-pink-100 border border-pink-200 rounded-lg p-4 shadow-sm">
+                <h2 class="text-pink-800 font-bold mb-3 text-sm uppercase">Item Details</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <input formControlName="stc_item_code" type="text" placeholder="Item Code" class="w-full border border-gray-300 bg-white rounded p-2.5 outline-none focus:border-pink-500">
+                    <input formControlName="stc_item_type" type="text" placeholder="Item Type" class="w-full border border-gray-300 bg-white rounded p-2.5 outline-none focus:border-pink-500">
+                    <input formControlName="stc_item_name" type="text" placeholder="Item Name" class="w-full border border-gray-300 bg-white rounded p-2.5 outline-none focus:border-pink-500">
+                    <input formControlName="stc_item_category" type="text" placeholder="Category" class="w-full border border-gray-300 bg-white rounded p-2.5 outline-none focus:border-pink-500">
+                    <input formControlName="stc_sub_category" type="text" placeholder="Sub Category" class="w-full border border-gray-300 bg-white rounded p-2.5 outline-none focus:border-pink-500">
+                    <input formControlName="stc_purity" type="text" placeholder="Purity" class="w-full border border-gray-300 bg-white rounded p-2.5 outline-none focus:border-pink-500">
                 </div>
-
-                <div class="flex-1  bg-blue-200 rounded p-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    <input formControlName="stc_gross_weight" type="text" placeholder="GS Wt" class="border bg-white rounded p-2 outline-none">
-                    <input formControlName="stc_net_weight" type="text" placeholder="Nt Wt" class="border bg-white rounded p-2 outline-none">
-                    <input formControlName="stc_westage_percent" type="text" placeholder="Westage percent" class="border bg-white rounded p-2 outline-none">
-                    <input formControlName="stc_making_charges" type="text" placeholder="Making Charges" class="border bg-white rounded p-2 outline-none">
-                    <input formControlName="stc_rate_per_gm" type="text" placeholder="Rate per gm" class="border bg-white rounded p-2 outline-none">
-                    <input formControlName="stc_purchase_price" type="text" placeholder="Purchase price" class="border bg-white rounded p-2 outline-none">
-                </div>
-
-                <div class="flex-1  bg-green-200 rounded p-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    <input formControlName="stc_selling_price" type="text" placeholder="Selling Price" class="border bg-white rounded p-2 outline-none">
-                    <input formControlName="stc_quantity" type="text" placeholder="Quantity" class="border bg-white rounded p-2 outline-none">
-                    <input formControlName="stc_supplier_id" type="text" placeholder="Supplier" class="border bg-white rounded p-2 outline-none">
-                    <input formControlName="stc_stock_staus" type="text" placeholder="Stock Status" class="border bg-white rounded p-2 outline-none">
-                    <button type="button" (click)="submit()" class="border p-2 rounded font-bold bg-pink-500 text-white">Submit</button>
-                    <button type="button" (click)="clearForm()" class="border p-2 rounded font-bold bg-blue-500 text-white">Clear</button>
-                </div>
-
             </div>
+
+            <!-- Section 2: Weight & Charges (Blue) -->
+            <div class="w-full lg:flex-1 bg-blue-100 border border-blue-200 rounded-lg p-4 shadow-sm">
+                <h2 class="text-blue-800 font-bold mb-3 text-sm uppercase">Weights & Charges</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <input formControlName="stc_gross_weight" type="text" placeholder="GS Wt" class="w-full border border-gray-300 bg-white rounded p-2.5 outline-none focus:border-blue-500">
+                    <input formControlName="stc_net_weight" type="text" placeholder="Nt Wt" class="w-full border border-gray-300 bg-white rounded p-2.5 outline-none focus:border-blue-500">
+                    <input formControlName="stc_westage_percent" type="text" placeholder="Wastage %" class="w-full border border-gray-300 bg-white rounded p-2.5 outline-none focus:border-blue-500">
+                    <input formControlName="stc_making_charges" type="text" placeholder="Making Charges" class="w-full border border-gray-300 bg-white rounded p-2.5 outline-none focus:border-blue-500">
+                    <input formControlName="stc_rate_per_gm" type="text" placeholder="Rate per gm" class="w-full border border-gray-300 bg-white rounded p-2.5 outline-none focus:border-blue-500">
+                    <input formControlName="stc_purchase_price" type="text" placeholder="Purchase price" class="w-full border border-gray-300 bg-white rounded p-2.5 outline-none focus:border-blue-500">
+                </div>
+            </div>
+
+            <!-- Section 3: Status & Actions (Green) -->
+            <div class="w-full lg:flex-1 bg-green-100 border border-green-200 rounded-lg p-4 shadow-sm">
+                <h2 class="text-green-800 font-bold mb-3 text-sm uppercase">Inventory & Status</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <input formControlName="stc_selling_price" type="text" placeholder="Selling Price" class="w-full border border-gray-300 bg-white rounded p-2.5 outline-none focus:border-green-500">
+                    <input formControlName="stc_quantity" type="text" placeholder="Quantity" class="w-full border border-gray-300 bg-white rounded p-2.5 outline-none focus:border-green-500">
+                    <input formControlName="stc_supplier_id" type="text" placeholder="Supplier" class="w-full border border-gray-300 bg-white rounded p-2.5 outline-none focus:border-green-500">
+                    <input formControlName="stc_stock_staus" type="text" placeholder="Stock Status" class="w-full border border-gray-300 bg-white rounded p-2.5 outline-none focus:border-green-500">
+                    
+                    <!-- Buttons: Full width on mobile, half on tablet -->
+                    <button type="button" (click)="submit()" 
+                        class="w-full py-3 rounded font-bold bg-pink-600 hover:bg-pink-700 text-white transition-colors shadow-md active:scale-95">
+                        Submit
+                    </button>
+                    <button type="button" (click)="clearForm()" 
+                        class="w-full py-3 rounded font-bold bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-md active:scale-95">
+                        Clear
+                    </button>
+                </div>
+            </div>
+
         </div>
     </form>
 </div>
