@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-dashboard',
-  standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
-  templateUrl: './dashboard.html',
+  selector: 'app-home',
+  imports: [CommonModule,RouterLink],
+  templateUrl: './home.html',
+  styleUrl: './home.css',
 })
-export class Dashboard {
+export class Home {
   sidebarOpen = false;
 
   toggleSidebar() {

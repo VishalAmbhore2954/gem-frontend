@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { log } from 'console';
+import { StockService } from '../../../Services/stock';
+import { Toastr } from '../../../Services/toastr';
 
 @Component({
   selector: 'app-stock',
@@ -13,15 +13,17 @@ export class Stock implements OnInit{
 
   stockForm!:FormGroup;
 
-  constructor(private fb:FormBuilder,private http:HttpClient){}
+  constructor(private fb:FormBuilder,private stockService:StockService,private toastr:Toastr){}
 
   ngOnInit(): void {
     this.initStockForm();
+    this.getNextCode();
   }
 
   initStockForm() {
     this.stockForm = this.fb.group({
       stc_item_code: ['', Validators.required],
+      stc_item_type: ['', Validators.required],
       stc_item_name: ['', Validators.required],
       stc_item_category: ['', Validators.required],
       stc_sub_category: ['', Validators.required],
@@ -43,10 +45,20 @@ export class Stock implements OnInit{
 
   submit(){
     console.log("form data is ",this.stockForm.value);
-    this.http.post('http://127.0.0.1:8000/api/stock-consolidate',this.stockForm.value).subscribe({
-  next: res => console.log('Saved', res),
-  error: err => console.error('Error', err)
-});
+    this.stockService.createStock(this.stockForm.value).subscribe((res:any)=>{
+      this.toastr.showSuccess("Stock stored successfully");
+      this.getNextCode();
+    });
+  }
+
+  getNextCode(){
+    this.stockService.getNextCode().subscribe((res:any)=>{
+      const code = res.data;
+      console.log("code is",code);
+      this.stockForm.patchValue({
+        stc_item_code : code,
+      })
+    })
   }
 
   clearForm(){
