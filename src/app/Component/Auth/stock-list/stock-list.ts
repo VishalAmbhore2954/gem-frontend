@@ -41,6 +41,10 @@ export class StockList implements OnInit{
     }
   }
 
+  generateTag(item:any){
+    this.router.navigate(['/tagging-panel/'+item.id]);
+  }
+
   geToStock(){
     this.router.navigate(['/stock'])
   }

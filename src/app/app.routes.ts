@@ -19,5 +19,6 @@ export const routes: Routes = [
     { path: 'inventory-cards', component:InventoryCards},
     { path: 'stock-list', component:StockList},
     { path: 'tagging-panel', component:TaggingPanel},
+    { path: 'tagging-panel/:id', component:TaggingPanel},
     { path: '**', component:Notfound}
 ];
