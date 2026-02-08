@@ -87,7 +87,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-8">
         <div class="bg-gradient-to-br from-emerald-500/20 to-emerald-700/5 border border-emerald-500/20 rounded-2xl p-5">
           <div class="text-gray-400 text-xs font-bold uppercase tracking-wider">Total Stock</div>
-          <div class="text-3xl font-bold mt-2">₹{{ totalStock.current_month_total || 0.00 }}</div>
+          <div class="text-3xl font-bold mt-2">₹{{ totalStock.current_month_total || '0.00' }}</div>
           <div class="text-emerald-400 text-xs mt-2">↑ {{ totalStock.percentage_change }}% from last month</div>
         </div>
         <div class="bg-gradient-to-br from-rose-500/20 to-rose-700/5 border border-rose-500/20 rounded-2xl p-5">
