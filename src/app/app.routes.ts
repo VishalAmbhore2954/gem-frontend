@@ -7,6 +7,7 @@ import { Home } from './Component/Auth/home/home';
 import { StockMasterList } from './Component/Auth/stock-master-list/stock-master-list';
 import { StockList } from './Component/Auth/stock-list/stock-list';
 import { InventoryCards } from './Component/Auth/inventory-cards/inventory-cards';
+import { TaggingPanel } from './Component/Auth/tagging-panel/tagging-panel';
 
 export const routes: Routes = [
     { path: '', component:Home},
@@ -17,5 +18,6 @@ export const routes: Routes = [
     { path: 'stock-master-list', component:StockMasterList},
     { path: 'inventory-cards', component:InventoryCards},
     { path: 'stock-list', component:StockList},
+    { path: 'tagging-panel', component:TaggingPanel},
     { path: '**', component:Notfound}
 ];

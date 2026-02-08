@@ -29,4 +29,8 @@ export class StockService {
   getNextCode(){
     return this.http.get(this.apiUrl+'stock-consolidate/itemcode');
   }
+
+  getTotalStock(){
+    return this.http.get(this.apiUrl+'stock-consolidate/totalstock');
+  }
 }

@@ -1,0 +1,53 @@
+<div class="min-h-screen bg-gray-100 p-6">
+  <div class="max-w-4xl mx-auto bg-white rounded-xl shadow p-6">
+
+    <h2 class="text-2xl font-bold mb-4 text-center">
+      Retail Tagging Panel
+    </h2>
+
+    <!-- Wholesale Summary -->
+    <div class="grid grid-cols-2 gap-4 bg-blue-50 p-4 rounded mb-6">
+      <div><b>Item:</b> {{ wholesaleItem.item_name }}</div>
+      <div><b>Code:</b> {{ wholesaleItem.item_code }}</div>
+      <div><b>Purity:</b> {{ wholesaleItem.purity }}</div>
+      <div><b>Total Qty:</b> {{ wholesaleItem.total_qty }}</div>
+      <div class="col-span-2">
+        <b>Total Net Weight:</b> {{ wholesaleItem.total_weight }} gm
+      </div>
+    </div>
+
+    <!-- Tag Inputs -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <input
+        type="number"
+        [(ngModel)]="tagCount"
+        (input)="calculateTags()"
+        placeholder="Number of Tags"
+        class="border p-3 rounded"
+      />
+
+      <input
+        type="number"
+        [(ngModel)]="tagWeight"
+        (input)="calculateTags()"
+        placeholder="Total Weight for Tags (gm)"
+        class="border p-3 rounded"
+      />
+    </div>
+
+    <!-- Calculations -->
+    <div class="bg-green-50 p-4 rounded mb-6">
+      <p><b>Weight per Tag:</b> {{ calculatedWeightPerTag }} gm</p>
+      <p><b>Remaining Weight:</b> {{ remainingWeight }} gm</p>
+    </div>
+
+    <!-- Action -->
+    <button
+      (click)="generateTags()"
+      class="w-full bg-pink-600 hover:bg-pink-700 text-white py-3 rounded font-bold"
+    >
+      Generate Retail Tags
+    </button>
+
+  </div>
+</div>

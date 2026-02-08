@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { StockService } from '../../../Services/stock';
 import { Router, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-stock-list',
-  imports: [RouterLink],
+  imports: [RouterLink,CommonModule],
   templateUrl: './stock-list.html',
   styleUrl: './stock-list.css',
 })
